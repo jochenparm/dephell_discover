@@ -65,8 +65,8 @@ class Root:
         for path in self.path.glob('**/*'):
             if not self.include(path=path):
                 continue
-            # skip dirs, python files and files without extension
-            if not path.is_file() or path.suffix in ('.py', ''):
+            # skip dirs and python files
+            if not path.is_file() or path.suffix in ('.py', ):
                 continue
             data = self._make_data(path=path.parent, ext=path.suffix)
             if data is not None:
@@ -105,7 +105,7 @@ class Root:
 
     def _make_data(self, path: Path, ext: str) -> Optional[Data]:
         paths = {package.path for package in self.packages}
-        for parent in chain((path,), path.parents):
+        for parent in chain((path, ), path.parents):
             if parent not in paths:
                 continue
             package = Package(path=parent, root=self.path, module=self._get_module_name(parent))
