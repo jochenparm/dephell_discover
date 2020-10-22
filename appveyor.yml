@@ -5,13 +5,6 @@ build: false
 
 environment:
   matrix:
-    - PYTHON: "C:\\Python35-x64"
-      PYTHON_VERSION: "3.5.x"
-      ARCH: "64"
-      WINDOWS_SDK_VERSION: "v7.1"
-      PLAT_NAME: "win-amd64"
-      PY_TAG: "cp35"
-
     - PYTHON: "C:\\Python36-x64"
       PYTHON_VERSION: "3.6.x"
       ARCH: "64"
@@ -25,6 +18,13 @@ environment:
       WINDOWS_SDK_VERSION: "v7.1"
       PLAT_NAME: "win-amd64"
       PY_TAG: "cp37"
+
+    - PYTHON: "C:\\Python38-x64"
+      PYTHON_VERSION: "3.8.x"
+      ARCH: "64"
+      WINDOWS_SDK_VERSION: "v7.1"
+      PLAT_NAME: "win-amd64"
+      PY_TAG: "cp38"
 
 init:
   - "ECHO %PYTHON% %PYTHON_VERSION% %PYTHON_ARCH%"
